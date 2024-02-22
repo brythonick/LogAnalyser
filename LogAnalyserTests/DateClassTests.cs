@@ -7,28 +7,28 @@ public class DateClassTests
     private LogDate date = new LogDate();
 
     [Fact]
-    public void holdsDay()
+    public void HoldsDay()
     {
-        Exception exception = Record.Exception(() => { date.day = 1; });
+        Exception exception = Record.Exception(() => { date.Day = 1; });
         Assert.Null(exception);
     }
 
     [Fact]
-    public void holdsMonth()
+    public void HoldsMonth()
     {
-        Exception exception = Record.Exception(() => { date.month = 1; });
+        Exception exception = Record.Exception(() => { date.Month = 1; });
         Assert.Null(exception);
     }
 
     [Fact]
-    public void holdsYear()
+    public void HoldsYear()
     {
-        Exception exception = Record.Exception(() => { date.year = 2023; });
+        Exception exception = Record.Exception(() => { date.Year = 2023; });
         Assert.Null(exception);
     }
 
     [Fact]
-    public void takesDatePartsAtInit()
+    public void TakesDatePartsAtInit()
     {
         Exception exception = Record.Exception(() => {
             LogDate d = new LogDate(1, 1, 2023);
@@ -37,53 +37,53 @@ public class DateClassTests
     }
 
     [Fact]
-    public void validationRejectsDayTooSmall()
+    public void ValidationRejectsDayTooSmall()
     {
-        Assert.Throws<DateDayZero>(() => date.day = 0);
+        Assert.Throws<DateDayZero>(() => date.Day = 0);
     }
 
     [Fact]
-    public void validationRejectsDayTooLarge()
+    public void ValidationRejectsDayTooLarge()
     {
-        Assert.Throws<DateDayTooLarge>(() => date.day = 32);
-        Assert.Throws<DateDayTooLarge>(() => date.day = 40);
-        Assert.Throws<DateDayTooLarge>(() => date.day = 2000);
+        Assert.Throws<DateDayTooLarge>(() => date.Day = 32);
+        Assert.Throws<DateDayTooLarge>(() => date.Day = 40);
+        Assert.Throws<DateDayTooLarge>(() => date.Day = 2000);
     }
 
     [Fact]
-    public void validationRejectsMonthTooSmall()
+    public void ValidationRejectsMonthTooSmall()
     {
-        Assert.Throws<DateMonthZero>(() => date.month = 0);
+        Assert.Throws<DateMonthZero>(() => date.Month = 0);
     }
 
     [Fact]
-    public void validationRejectsMonthTooLarge()
+    public void ValidationRejectsMonthTooLarge()
     {
-        Assert.Throws<DateMonthTooLarge>(() => date.month = 13);
-        Assert.Throws<DateMonthTooLarge>(() => date.month = 14);
-        Assert.Throws<DateMonthTooLarge>(() => date.month = 50);
+        Assert.Throws<DateMonthTooLarge>(() => date.Month = 13);
+        Assert.Throws<DateMonthTooLarge>(() => date.Month = 14);
+        Assert.Throws<DateMonthTooLarge>(() => date.Month = 50);
     }
 
     [Fact]
-    public void validationRejectsYearTooSmall()
+    public void ValidationRejectsYearTooSmall()
     {
-        Assert.Throws<DateYearTooSmall>(() => date.year = 0);
-        Assert.Throws<DateYearTooSmall>(() => date.year = 1);
-        Assert.Throws<DateYearTooSmall>(() => date.year = 1492);
-        Assert.Throws<DateYearTooSmall>(() => date.year = 1969);
+        Assert.Throws<DateYearTooSmall>(() => date.Year = 0);
+        Assert.Throws<DateYearTooSmall>(() => date.Year = 1);
+        Assert.Throws<DateYearTooSmall>(() => date.Year = 1492);
+        Assert.Throws<DateYearTooSmall>(() => date.Year = 1969);
     }
 
     [Fact]
-    public void validationAllowsYearAfter1970()
+    public void ValidationAllowsYearAfter1970()
     {
-        Exception exception = Record.Exception(() => date.year = 1970);
+        Exception exception = Record.Exception(() => date.Year = 1970);
         Assert.Null(exception);
-        exception = Record.Exception(() => date.year = 2023);
+        exception = Record.Exception(() => date.Year = 2023);
         Assert.Null(exception);
     }
 
     [Fact]
-    public void validationAppliesToArgs()
+    public void ValidationAppliesToArgs()
     {
         Assert.Throws<DateDayZero>(() =>
         {
@@ -118,7 +118,7 @@ public class DateClassTests
     [InlineData((uint)18, (uint)3, (uint)2020, (uint)31, (uint)9, (uint)2019, false)]
     [InlineData((uint)31, (uint)12, (uint)1999, (uint)30, (uint)12, (uint)1999, false)]
     [InlineData((uint)31, (uint)12, (uint)1999, (uint)1, (uint)1, (uint)2000, true)]
-    public void comparesLessThan(
+    public void ComparesLessThan(
         uint sDay, uint sMonth, uint sYear,
         uint lDay, uint lMonth, uint lYear,
         bool expected)
@@ -139,7 +139,7 @@ public class DateClassTests
     [InlineData((uint)18, (uint)3, (uint)2020, (uint)31, (uint)9, (uint)1987, false)]
     [InlineData((uint)31, (uint)12, (uint)1999, (uint)30, (uint)12, (uint)1999, false)]
     [InlineData((uint)31, (uint)12, (uint)1999, (uint)1, (uint)1, (uint)2000, true)]
-    public void comparesMoreThan(
+    public void ComparesMoreThan(
         uint sDay, uint sMonth, uint sYear,
         uint lDay, uint lMonth, uint lYear,
         bool expected)

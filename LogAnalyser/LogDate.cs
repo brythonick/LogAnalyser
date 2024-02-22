@@ -3,7 +3,7 @@
     public class LogDate
 	{
 		private uint _day;
-		public uint day
+		public uint Day
 		{
 			get { return _day; }
 			set
@@ -18,7 +18,7 @@
 		}
 
 		private uint _month;
-		public uint month
+		public uint Month
 		{
 			get { return _month; }
 			set
@@ -33,7 +33,7 @@
 		}
 
 		private uint _year;
-        public uint year
+        public uint Year
 		{
 			get { return _year; }
 			set
@@ -48,20 +48,20 @@
 		public LogDate() { }
         public LogDate(uint argDay, uint argMonth, uint argYear)
 		{
-			day = argDay; month = argMonth; year = argYear;
+			Day = argDay; Month = argMonth; Year = argYear;
 		}
 
 		public static bool operator <(LogDate s, LogDate l)
 		{
-			return (s.year < l.year)
-				|| ((s.year == l.year) && (s.month < l.month))
-				|| ((s.year == l.year) && (s.month == l.month) && (s.day < l.day));
+			return (s.Year < l.Year)
+				|| ((s.Year == l.Year) && (s.Month < l.Month))
+				|| ((s.Year == l.Year) && (s.Month == l.Month) && (s.Day < l.Day));
         }
         public static bool operator >(LogDate l, LogDate s)
         {
-            return (s.year < l.year)
-                || ((s.year == l.year) && (s.month < l.month))
-                || ((s.year == l.year) && (s.month == l.month) && (s.day < l.day));
+            return (s.Year < l.Year)
+                || ((s.Year == l.Year) && (s.Month < l.Month))
+                || ((s.Year == l.Year) && (s.Month == l.Month) && (s.Day < l.Day));
         }
     }
 
