@@ -7,4 +7,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="DateRecorder\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DateRecorder\" />
+  </ItemGroup>
 </Project>

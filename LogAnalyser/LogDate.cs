@@ -51,6 +51,8 @@
 			Day = argDay; Month = argMonth; Year = argYear;
 		}
 
+		public bool Empty { get { return _day == 0 && _month == 0 && _year == 0; } }
+
 		public static bool operator <(LogDate s, LogDate l)
 		{
 			return (s.Year < l.Year)
