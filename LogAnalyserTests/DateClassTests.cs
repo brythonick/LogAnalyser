@@ -106,4 +106,46 @@ public class DateClassTests
             LogDate d = new LogDate(1, 1, 1969);
         });
     }
+
+    [Theory]
+    [InlineData((uint)1, (uint)1, (uint)1970, (uint)1, (uint)1, (uint)2023, true)]
+    [InlineData((uint)1, (uint)1, (uint)1970, (uint)1, (uint)1, (uint)1970, false)]
+    [InlineData((uint)1, (uint)1, (uint)2023, (uint)1, (uint)2, (uint)2023, true)]
+    [InlineData((uint)1, (uint)1, (uint)2023, (uint)2, (uint)1, (uint)2023, true)]
+    [InlineData((uint)1, (uint)1, (uint)2023, (uint)1, (uint)1, (uint)2022, false)]
+    [InlineData((uint)5, (uint)10, (uint)2023, (uint)20, (uint)11, (uint)2023, true)]
+    [InlineData((uint)4, (uint)4, (uint)2003, (uint)4, (uint)4, (uint)2023, true)]
+    [InlineData((uint)18, (uint)3, (uint)2020, (uint)31, (uint)9, (uint)2019, false)]
+    [InlineData((uint)31, (uint)12, (uint)1999, (uint)30, (uint)12, (uint)1999, false)]
+    [InlineData((uint)31, (uint)12, (uint)1999, (uint)1, (uint)1, (uint)2000, true)]
+    public void comparesLessThan(
+        uint sDay, uint sMonth, uint sYear,
+        uint lDay, uint lMonth, uint lYear,
+        bool expected)
+    {
+        LogDate smaller = new(sDay, sMonth, sYear);
+        LogDate larger = new(lDay, lMonth, lYear);
+        Assert.Equal(expected, smaller < larger);
+    }
+
+    [Theory]
+    [InlineData((uint)1, (uint)1, (uint)1970, (uint)1, (uint)1, (uint)2023, true)]
+    [InlineData((uint)1, (uint)1, (uint)1970, (uint)1, (uint)1, (uint)1970, false)]
+    [InlineData((uint)1, (uint)1, (uint)2023, (uint)1, (uint)2, (uint)2023, true)]
+    [InlineData((uint)1, (uint)1, (uint)2023, (uint)2, (uint)1, (uint)2023, true)]
+    [InlineData((uint)1, (uint)1, (uint)2024, (uint)1, (uint)1, (uint)2020, false)]
+    [InlineData((uint)5, (uint)10, (uint)2023, (uint)20, (uint)11, (uint)2023, true)]
+    [InlineData((uint)24, (uint)4, (uint)2003, (uint)4, (uint)5, (uint)2003, true)]
+    [InlineData((uint)18, (uint)3, (uint)2020, (uint)31, (uint)9, (uint)1987, false)]
+    [InlineData((uint)31, (uint)12, (uint)1999, (uint)30, (uint)12, (uint)1999, false)]
+    [InlineData((uint)31, (uint)12, (uint)1999, (uint)1, (uint)1, (uint)2000, true)]
+    public void comparesMoreThan(
+        uint sDay, uint sMonth, uint sYear,
+        uint lDay, uint lMonth, uint lYear,
+        bool expected)
+    {
+        LogDate smaller = new(sDay, sMonth, sYear);
+        LogDate larger = new(lDay, lMonth, lYear);
+        Assert.Equal(expected, larger > smaller);
+    }
 }
