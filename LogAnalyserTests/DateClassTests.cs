@@ -4,7 +4,7 @@ namespace LogAnalyserTests;
 
 public class DateClassTests
 {
-    private LogDate date = new LogDate();
+    private LogDate date = new();
 
     [Fact]
     public void HoldsDay()
@@ -31,7 +31,7 @@ public class DateClassTests
     public void TakesDatePartsAtInit()
     {
         Exception exception = Record.Exception(() => {
-            LogDate d = new LogDate(1, 1, 2023);
+            LogDate d = new(1, 1, 2023);
         });
         Assert.Null(exception);
     }
@@ -87,23 +87,23 @@ public class DateClassTests
     {
         Assert.Throws<DateDayZero>(() =>
         {
-            LogDate d = new LogDate(0, 1, 2023);
+            LogDate d = new(0, 1, 2023);
         });
         Assert.Throws<DateDayTooLarge>(() =>
         {
-            LogDate d = new LogDate(40, 1, 2023);
+            LogDate d = new(40, 1, 2023);
         });
         Assert.Throws<DateMonthZero>(() =>
         {
-            LogDate d = new LogDate(1, 0, 2023);
+            LogDate d = new(1, 0, 2023);
         });
         Assert.Throws<DateMonthTooLarge>(() =>
         {
-            LogDate d = new LogDate(1, 13, 2023);
+            LogDate d = new(1, 13, 2023);
         });
         Assert.Throws<DateYearTooSmall>(() =>
         {
-            LogDate d = new LogDate(1, 1, 1969);
+            LogDate d = new(1, 1, 1969);
         });
     }
 
