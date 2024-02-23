@@ -53,6 +53,14 @@
 
 		public bool Empty { get { return _day == 0 && _month == 0 && _year == 0; } }
 
+		public override string ToString()
+		{
+			if (_day != 0 && _month != 0 && _year != 0)
+				return string.Format("{0:0000}-{1:00}-{2:00}", _year, _month, _day);
+			else
+				return "LogDate Empty";
+		}
+
 		public static bool operator <(LogDate s, LogDate l)
 		{
 			return (s.Year < l.Year)

@@ -10,18 +10,18 @@
             if (_smallestYear == 0)
             {
                 _smallestYear = (int)date.Year;
-                _bins[0] = new YearBin();
+                _bins[0] = new YearBin((int)date.Year);
             }
             int index = (int)date.Year % _smallestYear;
             if (index == (int)date.Year)
             {
-                _bins = Merge.YearBinArrays(new YearBin[1] { new YearBin() }, _bins);
+                _bins = Merge.YearBinArrays(new YearBin[1] { new YearBin((int)date.Year) }, _bins);
                 _bins[0].Add(date);
                 _smallestYear = (int)date.Year;
             }
             else if (index > _bins.Length)
             {
-                _bins = Merge.YearBinArrays(_bins, new YearBin[1] { new YearBin() });
+                _bins = Merge.YearBinArrays(_bins, new YearBin[1] { new YearBin((int)date.Year) });
                 _bins[_bins.Length - 1].Add(date);
             }
             else

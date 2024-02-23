@@ -4,6 +4,7 @@
 	{
         private LogDate[] _bins = new LogDate[31];
         private int _totalDates = 0;
+        private uint _month;
 
         public MonthBin()
         {
@@ -13,8 +14,17 @@
             }
         }
 
+        public override string ToString()
+        {
+            if (_totalDates != 0)
+                return string.Format("MonthBin {0:00}", _month);
+            else
+                return "MonthBin Empty";
+        }
+
         public void Add(LogDate date)
         {
+            _month = date.Month;
             int index = (int)date.Day - 1;
             _bins[index] = date;
             _totalDates++;

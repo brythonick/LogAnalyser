@@ -3,13 +3,24 @@
     public class YearBin
 	{
         private MonthBin[] _bins = new MonthBin[12];
+        private int _year;
 
-        public YearBin()
+        public YearBin(int? year)
         {
+            if (year != null)
+                _year = year.Value;
             for (int i = 0; i < _bins.Length; i++)
             {
                 _bins[i] = new MonthBin();
             }
+        }
+
+        public override string ToString()
+        {
+            if (_year != 0)
+                return string.Format("YearBin {0:0000}", _year);
+            else
+                return "YearBin Empty";
         }
 
         public void Add(LogDate date)

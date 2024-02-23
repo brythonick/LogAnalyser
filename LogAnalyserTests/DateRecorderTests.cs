@@ -43,7 +43,7 @@ namespace LogAnalyserTests
         [Fact]
         public void YearBinReturnsDateObject()
         {
-            YearBin bin = new();
+            YearBin bin = new(null);
             bin.Add(date);
             LogDate returnedDate = bin.Dates()[0];
             Assert.Equal((uint)2024, returnedDate.Year);
@@ -52,7 +52,7 @@ namespace LogAnalyserTests
         [Fact]
         public void YearBinReturnsMultiplesInOrder()
         {
-            YearBin bin = new();
+            YearBin bin = new(null);
             LogDate d1 = new(1, 1, 2024);
             LogDate d2 = new(10, 2, 2024);
             LogDate d3 = new(3, 3, 2024);
