@@ -23,17 +23,7 @@
             LogDate[] recordedDates = new LogDate[0];
             for (int i = 0; i < _bins.Length; i++)
             {
-                LogDate[] currentRecordedDates = _bins[i].Dates();
-                LogDate[] newRecordedDates = new LogDate[recordedDates.Length + currentRecordedDates.Length];
-                for (int j = 0; j < recordedDates.Length; j++)
-                {
-                    newRecordedDates[j] = recordedDates[j];
-                }
-                for (int j = 0; j < currentRecordedDates.Length; j++)
-                {
-                    newRecordedDates[j + recordedDates.Length] = currentRecordedDates[j];
-                }
-                recordedDates = newRecordedDates;
+                recordedDates = Merge.LogDateArrays(recordedDates, _bins[i].Dates());
             }
             return recordedDates;
         }
