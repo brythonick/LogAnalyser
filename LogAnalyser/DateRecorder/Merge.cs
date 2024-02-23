@@ -15,6 +15,20 @@
             }
             return combinedArray;
         }
+
+        public static YearBin[] YearBinArrays(YearBin[] array1, YearBin[] array2)
+        {
+            YearBin[] combinedArray = new YearBin[array1.Length + array2.Length];
+            for (int i = 0; i < array1.Length; i++)
+            {
+                combinedArray[i] = array1[i];
+            }
+            for (int i = 0; i < array2.Length; i++)
+            {
+                combinedArray[array1.Length + i] = array2[i];
+            }
+            return combinedArray;
+        }
 	}
 }
 
