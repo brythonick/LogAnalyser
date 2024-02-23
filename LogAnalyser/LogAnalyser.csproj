@@ -9,8 +9,10 @@
 
   <ItemGroup>
     <None Remove="DateRecorder\" />
+    <None Remove="Logs\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DateRecorder\" />
+    <Folder Include="Logs\" />
   </ItemGroup>
 </Project>
