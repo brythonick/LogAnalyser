@@ -10,9 +10,18 @@
   <ItemGroup>
     <None Remove="DateRecorder\" />
     <None Remove="Logs\" />
+    <None Remove="LogReader\" />
+    <None Remove="Config\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DateRecorder\" />
     <Folder Include="Logs\" />
+    <Folder Include="LogReader\" />
+    <Folder Include="Config\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Config\log_specification.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>
