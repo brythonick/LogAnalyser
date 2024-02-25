@@ -24,9 +24,21 @@ namespace LogAnalyser
 		public string SpecName { get { return _specificationName; } }
 		public LogSpec Spec { get { return _spec; } }
 
-		public static LogDate ParseDate(string logLine)
+		public LogDate ParseDate(string logLine)
 		{
-			throw new Exception("Not yet implemented");
-		}
+			if (_spec.delimiter != null)
+			{
+                string[] splitLine = logLine.Split(_spec.delimiter);
+				logLine = splitLine[_spec.indicies.date];
+            }
+			LogDate date = new();
+			int yearLength = _spec.indicies.yearEnd - _spec.indicies.yearStart;
+			date.Year = uint.Parse(logLine.Substring(_spec.indicies.yearStart, yearLength + 1));
+            int monthLength = _spec.indicies.monthEnd - _spec.indicies.monthStart;
+            date.Month = uint.Parse(logLine.Substring(_spec.indicies.monthStart, monthLength + 1));
+            int dayLength = _spec.indicies.dayEnd - _spec.indicies.dayStart;
+            date.Day = uint.Parse(logLine.Substring(_spec.indicies.dayStart, dayLength + 1));
+			return date;
+        }
 	}
 }

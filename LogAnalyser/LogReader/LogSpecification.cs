@@ -16,10 +16,12 @@
 	public class LogSpec
 	{
 		public required LogIndex indicies { get; set; }
+		public string? delimiter { get; set; }
 	}
 
 	public class LogIndex
 	{
+		public int date { get; set; }
 		public int yearStart { get; set; }
 		public int yearEnd { get; set; }
 		public int monthStart { get; set; }

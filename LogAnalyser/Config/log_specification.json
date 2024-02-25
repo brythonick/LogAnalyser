@@ -1,12 +1,14 @@
 ﻿{
   "ceredigion": {
+    "delimiter":  ",",
     "indicies": {
-      "yearStart": 2,
-      "yearEnd": 5,
-      "monthStart": 7,
-      "monthEnd": 8,
-      "dayStart": 10,
-      "dayEnd": 11
+      "date": 1,
+      "yearStart": 0,
+      "yearEnd": 3,
+      "monthStart": 5,
+      "monthEnd": 6,
+      "dayStart": 8,
+      "dayEnd": 9
     }
   }
 }
