@@ -26,8 +26,11 @@
         {
             _month = date.Month;
             int index = (int)date.Day - 1;
-            _bins[index] = date;
-            _totalDates++;
+            if (_bins[index].Empty)
+            {
+                _bins[index] = date;
+                _totalDates++;
+            }
         }
 
         public LogDate[] Dates()
