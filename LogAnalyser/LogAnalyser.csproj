@@ -12,16 +12,27 @@
     <None Remove="Logs\" />
     <None Remove="LogReader\" />
     <None Remove="Config\" />
+    <None Remove="LogSource\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DateRecorder\" />
     <Folder Include="Logs\" />
     <Folder Include="LogReader\" />
     <Folder Include="Config\" />
+    <Folder Include="LogSource\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Config\log_specification.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Logs\ceredigion.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Logs\spark.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Logs\apache.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 </Project>
