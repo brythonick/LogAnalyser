@@ -3,11 +3,14 @@
     public class LogSpecifications
 	{
 		public required LogSpec ceredigion { get; set; }
+		public required LogSpec spark { get; set; }
 
 		public LogSpec GetSpec(string name)
 		{
 			if (name == "ceredigion")
 				return ceredigion;
+			else if (name == "spark")
+				return spark;
 			else
 				throw new Exception("Given spec does not exist.");
 		}

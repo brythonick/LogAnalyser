@@ -33,12 +33,18 @@ namespace LogAnalyser
 				logLine = splitLine[_spec.indicies.date];
 			}
 			LogDate date = new();
-			int yearLength = _spec.indicies.yearEnd - _spec.indicies.yearStart;
-			date.Year = uint.Parse(logLine.Substring(_spec.indicies.yearStart, yearLength + 1));
-			int monthLength = _spec.indicies.monthEnd - _spec.indicies.monthStart;
-			date.Month = uint.Parse(logLine.Substring(_spec.indicies.monthStart, monthLength + 1));
-			int dayLength = _spec.indicies.dayEnd - _spec.indicies.dayStart;
-			date.Day = uint.Parse(logLine.Substring(_spec.indicies.dayStart, dayLength + 1));
+			int yearLength = (_spec.indicies.yearEnd - _spec.indicies.yearStart) + 1;
+			if (yearLength == 2)
+			{
+                string year = string.Concat("20", logLine.AsSpan(_spec.indicies.yearStart, yearLength));
+                date.Year = uint.Parse(year);
+            }
+			else
+				date.Year = uint.Parse(logLine.Substring(_spec.indicies.yearStart, yearLength));
+			int monthLength = (_spec.indicies.monthEnd - _spec.indicies.monthStart) + 1;
+			date.Month = uint.Parse(logLine.Substring(_spec.indicies.monthStart, monthLength));
+			int dayLength = (_spec.indicies.dayEnd - _spec.indicies.dayStart) + 1;
+			date.Day = uint.Parse(logLine.Substring(_spec.indicies.dayStart, dayLength));
 			return date;
 		}
 

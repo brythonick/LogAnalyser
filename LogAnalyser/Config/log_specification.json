@@ -1,6 +1,6 @@
 ﻿{
   "ceredigion": {
-    "delimiter":  ",",
+    "delimiter": ",",
     "indicies": {
       "date": 1,
       "yearStart": 0,
@@ -9,6 +9,18 @@
       "monthEnd": 6,
       "dayStart": 8,
       "dayEnd": 9
+    }
+  },
+  "spark": {
+    "delimiter": null,
+    "indicies": {
+      "date": 0,
+      "yearStart": 6,
+      "yearEnd": 7,
+      "monthStart": 3,
+      "monthEnd": 4,
+      "dayStart": 0,
+      "dayEnd": 1
     }
   }
 }
